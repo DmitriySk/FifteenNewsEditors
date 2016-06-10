@@ -3,7 +3,7 @@ package com.divarius.fifteennewseditors;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class OneNews {
+public class NewsGSON {
 
     @SerializedName("id")
     @Expose

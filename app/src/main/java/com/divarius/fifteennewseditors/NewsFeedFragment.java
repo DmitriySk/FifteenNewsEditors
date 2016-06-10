@@ -45,23 +45,19 @@ public class NewsFeedFragment extends Fragment {
                 .build();
 
         GeekinformerService geekService = retrofit.create(GeekinformerService.class);
-        Observable<OneNews[]> news = geekService.getNews();
+        Observable<NewsGSON[]> news = geekService.getNews();
 
         news.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<OneNews[]>() {
+                .subscribe(new Subscriber<NewsGSON[]>() {
                     @Override
-                    public void onCompleted() {
-                        Log.i("ZED", "Completed");
-                    }
+                    public void onCompleted() { Log.i("ZED", "Completed"); }
 
                     @Override
-                    public void onError(Throwable e) {
-                        e.printStackTrace();
-                    }
+                    public void onError(Throwable e) { e.printStackTrace(); }
 
                     @Override
-                    public void onNext(OneNews[] o) {
+                    public void onNext(NewsGSON[] o) {
                         Log.i("ZED", o[0].getTitle());
 
                         LinearLayoutManager llm = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);

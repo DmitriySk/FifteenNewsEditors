@@ -11,12 +11,13 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHolder> {
-    OneNews[] newsArr;
+    NewsGSON[] newsArr;
     View.OnClickListener clickListener;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public ImageView image;
+
         public ViewHolder(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.news_card_title);
@@ -24,15 +25,14 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
         }
     }
 
-    public NewsFeedAdapter (OneNews[] newsArr) {
+    public NewsFeedAdapter (NewsGSON[] newsArr) {
         this.newsArr = newsArr;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_card, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     @Override
