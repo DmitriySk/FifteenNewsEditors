@@ -10,9 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -35,13 +32,7 @@ public class NewsFeedFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(GeekinformerService.BASE_URL)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        GeekinformerService geekService = retrofit.create(GeekinformerService.class);
+        GeekinformerService geekService = RetrofitHelper.createRetrofitService(GeekinformerService.class, GeekinformerService.BASE_URL);
         Observable<NewsGSON[]> news = geekService.getNews();
 
         news.subscribeOn(Schedulers.newThread())
