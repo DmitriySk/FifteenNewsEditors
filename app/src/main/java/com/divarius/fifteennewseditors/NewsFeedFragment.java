@@ -18,9 +18,6 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-/**
- * Created by Dima on 09.06.2016.
- */
 public class NewsFeedFragment extends Fragment {
     RecyclerView rv;
 
