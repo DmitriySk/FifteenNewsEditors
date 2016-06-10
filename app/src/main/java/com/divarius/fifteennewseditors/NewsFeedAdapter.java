@@ -78,11 +78,11 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
                 .load(newsArr[position].getImageThumbnail())
                 .into(holder.image);
 
-        if (position != 0) {
+        /*if (position != 0) {
             RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(10, 0, 0, 0);
+            lp.setMargins(40, 0, 0, 0);
             holder.itemView.setLayoutParams(lp);
-        }
+        }*/
     }
 
     @Override

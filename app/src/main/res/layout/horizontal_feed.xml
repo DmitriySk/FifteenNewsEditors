@@ -3,6 +3,8 @@
     android:id="@+id/news_feed"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none" >
+    android:scrollbars="none"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
 
 </android.support.v7.widget.RecyclerView>
